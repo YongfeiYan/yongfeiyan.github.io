@@ -36,7 +36,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://yongfeiyan.cn/tags/" />
 
-<meta property="og:updated_time" content="2019-08-11T14:29:58+08:00" />
+<meta property="og:updated_time" content="2019-08-11T16:03:51+08:00" />
 <meta itemprop="name" content="Tags">
 <meta itemprop="description" content="Yongfei Yan&#39;s Blog">
 
@@ -125,6 +125,56 @@
             Tag: conda
           </a>
         </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Post</span>
+    <h1 class="f3 near-black">
+      <a href="/post/conda-download-problem/" class="link black dim">
+        Conda - Downloaded bytes did not match Content-Length 问题解决方案
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      问题描述 CondaError: Downloaded bytes did not match Content-Length url: https://repo.anaconda.com/pkgs/main/linux-64/cudnn-7.0.5-cuda8.0_0.tar.bz2 target_path: /home/yyf/miniconda3/pkgs/cudnn-7.0.5-cuda8.0_0.tar.bz2 Content-Length: 261398285 downloaded bytes: 47463195  问题如上所示，在用conda安装包的时候下载包的长度不够导致安装包不成功。原因一般是在下载的时候速度较慢，导致下载timeout而终止。解决办法如下。
+解决方案一 # 设置额外的源，直接从速度快的源进行下载。详见[清华源的添加方式](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)。 # 先添加清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/ # 再然后再运行安装命令 conda install 包 即可。  解决方案二： # 设置conda下载的timeout，然后再进行尝试，如果时长不够可以再设置大一点。 conda config --set remote_read_timeout_secs 600.0 # 然后运行安装命令 conda install 包 即可。  解决方案三： 从conda的源下载好要安装的包，直接采用本地安装的方式。下载的url再出错的地方有提示，比如 url: https://repo.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Post</span>
+    <h1 class="f3 near-black">
+      <a href="/post/conda-env/" class="link black dim">
+        Ubuntu使用conda新建环境（environment）并安装Tensorflow GPU版本和PyTorch
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      conda相关资源 conda详细文档：https://docs.conda.io/projects/conda/en/4.6.1/user-guide/getting-started.html 没有安装conda命令可以从 https://docs.anaconda.com/anaconda/install/ 下载并且安装。 conda可以用于创建Python环境，安装包，各个环境的Pyhton包相互独立。使用是激活安装的环境即可。不激活则使用默认的环境。 下面介绍的是简单创建一个环境并安装包，详细的使用说明请看conda文档。
+新建环境并且安装包 清华源的添加见：https://blog.csdn.net/feifei3211/article/details/80361227#commentBox 安装中假设已经安装好了cuda环境和conda。
+# 加上源用于快速获取相关的包 # 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/ # 腾讯源 conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/free/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/main/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/cloud/pytorch/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/pro/ # 创建一个环境，相关的包存在自己目录下（以后激活环境的时候只要指定这个目录即可） # --prefix 指定目录的位置(自己指定即可), python=3.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Post</span>
+    <h1 class="f3 near-black">
+      <a href="/post/conda-guide/" class="link black dim">
+        Conda使用指南
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      主要内容：搜集一些常用的conda使用相关的资源供参考。
+常用： - 使用conda创建环境 - conda官网Get Started教程 - 复制一个环境中的所有包安装到新环境中
+未完待续。
+    </div>
+  </div>
+</div>
+
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
