@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>conda on Yongfei Yan</title>
+    <link>http://yongfeiyan.cn/tags/conda/</link>
+    <description>Recent content in conda on Yongfei Yan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Aug 2019 14:29:58 +0800</lastBuildDate>
+    
+	<atom:link href="http://yongfeiyan.cn/tags/conda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Conda设置软件源</title>
+      <link>http://yongfeiyan.cn/post/conda-add-channels/</link>
+      <pubDate>Sun, 11 Aug 2019 14:29:58 +0800</pubDate>
+      
+      <guid>http://yongfeiyan.cn/post/conda-add-channels/</guid>
+      <description>添加源 腾讯源
+conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/free/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/main/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/cloud/pytorch/ conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/pro/  清华源
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/  移除源 腾讯源
+conda config --remove channels https://mirrors.cloud.tencent.com/anaconda/pkgs/free/ conda config --remove channels https://mirrors.cloud.tencent.com/anaconda/pkgs/main/ conda config --remove channels https://mirrors.</description>
+    </item>
+    
+  </channel>
+</rss>
