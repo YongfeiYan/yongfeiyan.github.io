@@ -171,31 +171,6 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/post/conda-download/" class="color-inherit dim link">
-            Conda - Downloaded bytes did not match Content-Length 问题解决方案
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          问题描述 CondaError: Downloaded bytes did not match Content-Length url: https://repo.anaconda.com/pkgs/main/linux-64/cudnn-7.0.5-cuda8.0_0.tar.bz2 target_path: /home/yyf/miniconda3/pkgs/cudnn-7.0.5-cuda8.0_0.tar.bz2 Content-Length: 261398285 downloaded bytes: 47463195  问题如上所示，在用conda安装包的时候下载包的长度不够导致安装包不成功。原因一般是在下载的时候速度较慢，导致下载timeout而终止。解决办法如下。
-解决方案一 # 设置额外的源，直接从速度快的源进行下载。详见[清华源的添加方式](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)。 # 先添加清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/ # 再然后再运行安装命令 conda install 包 即可。  解决方案二： # 设置conda下载的timeout，然后再进行尝试，如果时长不够可以再设置大一点。 conda config --set remote_read_timeout_secs 600.0 # 然后运行安装命令 conda install 包 即可。  解决方案三： 从conda的源下载好要安装的包，直接采用本地安装的方式。下载的url再出错的地方有提示，比如 url: https://repo.
-        </div>
-          <a href="/post/conda-download/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/post/conda-env/" class="color-inherit dim link">
             Ubuntu使用conda新建环境（environment）并安装Tensorflow GPU版本和PyTorch
             </a>
