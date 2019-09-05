@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Yongfei Yan</title>
+    <link>http://yongfeiyan.cn/tags/linux/</link>
+    <description>Recent content in linux on Yongfei Yan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Sep 2019 21:16:47 +0800</lastBuildDate>
+    
+	<atom:link href="http://yongfeiyan.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rsync的使用简介</title>
+      <link>http://yongfeiyan.cn/post/linux-rsync/</link>
+      <pubDate>Thu, 05 Sep 2019 21:16:47 +0800</pubDate>
+      
+      <guid>http://yongfeiyan.cn/post/linux-rsync/</guid>
+      <description>Nothing</description>
+    </item>
+    
+  </channel>
+</rss>
