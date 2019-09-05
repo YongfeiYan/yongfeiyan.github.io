@@ -4,7 +4,26 @@
   
   <url>
     <loc>http://yongfeiyan.cn/</loc>
-    <lastmod>2019-08-11T16:03:51+08:00</lastmod>
+    <lastmod>2019-09-05T21:16:47+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yongfeiyan.cn/tags/</loc>
+    <lastmod>2019-09-05T21:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yongfeiyan.cn/tags/linux/</loc>
+    <lastmod>2019-09-05T21:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yongfeiyan.cn/post/linux-rsync/</loc>
+    <lastmod>2019-09-05T21:16:47+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14,12 +33,6 @@
     <lastmod>2019-08-11T16:03:51+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://yongfeiyan.cn/tags/</loc>
-    <lastmod>2019-08-11T16:03:51+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
