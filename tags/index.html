@@ -206,11 +206,14 @@ conda config --remove channels https://mirrors.cloud.tencent.com/anaconda/pkgs/f
     <span class="f6 db">Post</span>
     <h1 class="f3 near-black">
       <a href="/post/linux-rsync/" class="link black dim">
-        rsync的使用简介
+        rsync使用简介
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Nothing
+      ##介绍 rsync是Linux下用于远程同步文件的工具，全称remote sync。rsync可以同步整个目录，同步链接指向的文件，增量同步，同步时排除特定文件，非常方便。rsync可以基于ssh协议传输，安全有保证。 ##使用 rsync命令格式为rsync [OPTION] SRC DST，其中SRC和DST可以是本地路径，或者远程路径USER@HOST:PATH，SRC还可以是多个路径，比如*.py。下面以同步本地文件到远程服务器为例，反向同步只需把路径改一下。 推荐先使用ssh-copy-id USER@HOST，设置可以密钥验证登录，省去繁琐的密码输入。
+参数介绍 -a, --archive 档案模式; 相当于 -rlptgoD (no -H,-A,-X) -v, --verbose 啰嗦模式 -r, --recursive 递归目录下的文件 -R, --relative 使用文件的相对路径，指定后源文件存为 DST/SRC，此时SRC如果为本地相对路径，比如 *.py，直接存储目标路径下比较方便。 -u, --update 增量同步，传输修改时间更新的文件，跳过传过的没有修改的文件 -L, --copy-links 将链接指向的真正文件传过去 --exclude=PATTERN 去除某些文件 --max-size SIZE --min-size SIZE 限制传输的大小，SIZE比如10KB，1MB等等  常用操作  同步当前目录下的所有文件到服务器，有时需要把代码同步过去就行了，data下的文件文件、隐藏文件都不需要，可以用
+rsync -auvrRL --exclude '.*' --exclude 'data' --max-size 1MB ./* USER@HOST:PATH  在~/.bashrc中写一个函数：将当前目录同步到服务器上。Windows就算了，Mac可以打开~/.bash_profile。说实话，我只用这么一个同步功能，想同步哪个目录同步哪个目录
+# 打开bashrc, Windows就算了， vim ~/.bashrc function sync-to-server(){ pushd &quot;$1&quot; local dir_name=&quot;$(basename $(pwd))&quot; rsync -auvrRL --exclude '.
     </div>
   </div>
 </div>

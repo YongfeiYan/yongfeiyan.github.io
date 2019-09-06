@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Yongfei Yan  | rsync的使用简介</title>
+    <title>Yongfei Yan  | rsync使用简介</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -28,26 +28,35 @@
 
     
 
-    <meta property="og:title" content="rsync的使用简介" />
-<meta property="og:description" content="Nothing" />
+    <meta property="og:title" content="rsync使用简介" />
+<meta property="og:description" content="##介绍 rsync是Linux下用于远程同步文件的工具，全称remote sync。rsync可以同步整个目录，同步链接指向的文件，增量同步，同步时排除特定文件，非常方便。rsync可以基于ssh协议传输，安全有保证。 ##使用 rsync命令格式为rsync [OPTION] SRC DST，其中SRC和DST可以是本地路径，或者远程路径USER@HOST:PATH，SRC还可以是多个路径，比如*.py。下面以同步本地文件到远程服务器为例，反向同步只需把路径改一下。 推荐先使用ssh-copy-id USER@HOST，设置可以密钥验证登录，省去繁琐的密码输入。
+参数介绍 -a, --archive 档案模式; 相当于 -rlptgoD (no -H,-A,-X) -v, --verbose 啰嗦模式 -r, --recursive 递归目录下的文件 -R, --relative 使用文件的相对路径，指定后源文件存为 DST/SRC，此时SRC如果为本地相对路径，比如 *.py，直接存储目标路径下比较方便。 -u, --update 增量同步，传输修改时间更新的文件，跳过传过的没有修改的文件 -L, --copy-links 将链接指向的真正文件传过去 --exclude=PATTERN 去除某些文件 --max-size SIZE --min-size SIZE 限制传输的大小，SIZE比如10KB，1MB等等  常用操作  同步当前目录下的所有文件到服务器，有时需要把代码同步过去就行了，data下的文件文件、隐藏文件都不需要，可以用
+rsync -auvrRL --exclude &#39;.*&#39; --exclude &#39;data&#39; --max-size 1MB ./* USER@HOST:PATH  在~/.bashrc中写一个函数：将当前目录同步到服务器上。Windows就算了，Mac可以打开~/.bash_profile。说实话，我只用这么一个同步功能，想同步哪个目录同步哪个目录
+# 打开bashrc, Windows就算了， vim ~/.bashrc function sync-to-server(){ pushd &quot;$1&quot; local dir_name=&quot;$(basename $(pwd))&quot; rsync -auvrRL --exclude &#39;." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yongfeiyan.cn/post/linux-rsync/" />
 <meta property="article:published_time" content="2019-09-05T21:16:47+08:00" />
 <meta property="article:modified_time" content="2019-09-05T21:16:47+08:00" />
-<meta itemprop="name" content="rsync的使用简介">
-<meta itemprop="description" content="Nothing">
+<meta itemprop="name" content="rsync使用简介">
+<meta itemprop="description" content="##介绍 rsync是Linux下用于远程同步文件的工具，全称remote sync。rsync可以同步整个目录，同步链接指向的文件，增量同步，同步时排除特定文件，非常方便。rsync可以基于ssh协议传输，安全有保证。 ##使用 rsync命令格式为rsync [OPTION] SRC DST，其中SRC和DST可以是本地路径，或者远程路径USER@HOST:PATH，SRC还可以是多个路径，比如*.py。下面以同步本地文件到远程服务器为例，反向同步只需把路径改一下。 推荐先使用ssh-copy-id USER@HOST，设置可以密钥验证登录，省去繁琐的密码输入。
+参数介绍 -a, --archive 档案模式; 相当于 -rlptgoD (no -H,-A,-X) -v, --verbose 啰嗦模式 -r, --recursive 递归目录下的文件 -R, --relative 使用文件的相对路径，指定后源文件存为 DST/SRC，此时SRC如果为本地相对路径，比如 *.py，直接存储目标路径下比较方便。 -u, --update 增量同步，传输修改时间更新的文件，跳过传过的没有修改的文件 -L, --copy-links 将链接指向的真正文件传过去 --exclude=PATTERN 去除某些文件 --max-size SIZE --min-size SIZE 限制传输的大小，SIZE比如10KB，1MB等等  常用操作  同步当前目录下的所有文件到服务器，有时需要把代码同步过去就行了，data下的文件文件、隐藏文件都不需要，可以用
+rsync -auvrRL --exclude &#39;.*&#39; --exclude &#39;data&#39; --max-size 1MB ./* USER@HOST:PATH  在~/.bashrc中写一个函数：将当前目录同步到服务器上。Windows就算了，Mac可以打开~/.bash_profile。说实话，我只用这么一个同步功能，想同步哪个目录同步哪个目录
+# 打开bashrc, Windows就算了， vim ~/.bashrc function sync-to-server(){ pushd &quot;$1&quot; local dir_name=&quot;$(basename $(pwd))&quot; rsync -auvrRL --exclude &#39;.">
 
 
 <meta itemprop="datePublished" content="2019-09-05T21:16:47&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-05T21:16:47&#43;08:00" />
-<meta itemprop="wordCount" content="1">
+<meta itemprop="wordCount" content="87">
 
 
 
 <meta itemprop="keywords" content="linux," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="rsync的使用简介"/>
-<meta name="twitter:description" content="Nothing"/>
+<meta name="twitter:title" content="rsync使用简介"/>
+<meta name="twitter:description" content="##介绍 rsync是Linux下用于远程同步文件的工具，全称remote sync。rsync可以同步整个目录，同步链接指向的文件，增量同步，同步时排除特定文件，非常方便。rsync可以基于ssh协议传输，安全有保证。 ##使用 rsync命令格式为rsync [OPTION] SRC DST，其中SRC和DST可以是本地路径，或者远程路径USER@HOST:PATH，SRC还可以是多个路径，比如*.py。下面以同步本地文件到远程服务器为例，反向同步只需把路径改一下。 推荐先使用ssh-copy-id USER@HOST，设置可以密钥验证登录，省去繁琐的密码输入。
+参数介绍 -a, --archive 档案模式; 相当于 -rlptgoD (no -H,-A,-X) -v, --verbose 啰嗦模式 -r, --recursive 递归目录下的文件 -R, --relative 使用文件的相对路径，指定后源文件存为 DST/SRC，此时SRC如果为本地相对路径，比如 *.py，直接存储目标路径下比较方便。 -u, --update 增量同步，传输修改时间更新的文件，跳过传过的没有修改的文件 -L, --copy-links 将链接指向的真正文件传过去 --exclude=PATTERN 去除某些文件 --max-size SIZE --min-size SIZE 限制传输的大小，SIZE比如10KB，1MB等等  常用操作  同步当前目录下的所有文件到服务器，有时需要把代码同步过去就行了，data下的文件文件、隐藏文件都不需要，可以用
+rsync -auvrRL --exclude &#39;.*&#39; --exclude &#39;data&#39; --max-size 1MB ./* USER@HOST:PATH  在~/.bashrc中写一个函数：将当前目录同步到服务器上。Windows就算了，Mac可以打开~/.bash_profile。说实话，我只用这么一个同步功能，想同步哪个目录同步哪个目录
+# 打开bashrc, Windows就算了， vim ~/.bashrc function sync-to-server(){ pushd &quot;$1&quot; local dir_name=&quot;$(basename $(pwd))&quot; rsync -auvrRL --exclude &#39;."/>
 
       
     
@@ -127,17 +136,65 @@
           
         ARTICLES
       </p>
-      <h1 class="f1 athelas mb1">rsync的使用简介</h1>
+      <h1 class="f1 athelas mb1">rsync使用简介</h1>
       
       <time class="f6 mv4 dib tracked" datetime="2019-09-05T21:16:47&#43;08:00">September 5, 2019</time>
       
       
         <span class="f6 mv4 dib tracked"> - 1 minutes read</span>
-        <span class="f6 mv4 dib tracked"> - 1 words</span>
+        <span class="f6 mv4 dib tracked"> - 87 words</span>
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Nothing</p>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>##介绍
+rsync是Linux下用于远程同步文件的工具，全称remote sync。rsync可以同步整个目录，同步链接指向的文件，增量同步，同步时排除特定文件，非常方便。rsync可以基于ssh协议传输，安全有保证。
+##使用
+rsync命令格式为<code>rsync [OPTION] SRC DST</code>，其中<code>SRC</code>和<code>DST</code>可以是本地路径，或者远程路径<code>USER@HOST:PATH</code>，<code>SRC</code>还可以是多个路径，比如<code>*.py</code>。下面以同步本地文件到远程服务器为例，反向同步只需把路径改一下。
+推荐先使用<code>ssh-copy-id USER@HOST</code>，设置可以密钥验证登录，省去繁琐的密码输入。</p>
+
+<h4 id="参数介绍">参数介绍</h4>
+
+<pre><code class="language-bash">-a, --archive               档案模式; 相当于 -rlptgoD (no -H,-A,-X)
+-v, --verbose               啰嗦模式
+-r, --recursive             递归目录下的文件
+-R, --relative              使用文件的相对路径，指定后源文件存为 DST/SRC，此时SRC如果为本地相对路径，比如 *.py，直接存储目标路径下比较方便。 
+-u, --update                增量同步，传输修改时间更新的文件，跳过传过的没有修改的文件
+-L, --copy-links            将链接指向的真正文件传过去
+--exclude=PATTERN           去除某些文件
+--max-size SIZE
+--min-size SIZE             限制传输的大小，SIZE比如10KB，1MB等等
+</code></pre>
+
+<h4 id="常用操作">常用操作</h4>
+
+<ol>
+<li><p>同步当前目录下的所有文件到服务器，有时需要把代码同步过去就行了，<code>data</code>下的文件文件、隐藏文件都不需要，可以用</p>
+
+<pre><code class="language-bash">rsync -auvrRL --exclude '.*' --exclude 'data' --max-size 1MB ./* USER@HOST:PATH
+</code></pre></li>
+
+<li><p>在<code>~/.bashrc</code>中写一个函数：将当前目录同步到服务器上。Windows就算了，Mac可以打开<code>~/.bash_profile</code>。说实话，我只用这么一个同步功能，想同步哪个目录同步哪个目录</p>
+
+<pre><code class="language-bash"># 打开bashrc, Windows就算了，
+vim ~/.bashrc
+function sync-to-server(){
+pushd &quot;$1&quot;
+local dir_name=&quot;$(basename $(pwd))&quot;
+rsync -auvrRL --exclude '.*' --exclude 'data' --max-size 1MB ./* USER@HOST:/home/USER/$dir_name
+pushd
+}
+# 使用的时候
+sync-to-server DIR
+</code></pre>
+
+<h2 id="资源">资源</h2></li>
+
+<li><p>Bash中没有rsync的话，<a href="[https://www.hostinger.com/tutorials/linux-rsync-remote-synchronization-command/](https://www.hostinger.com/tutorials/linux-rsync-remote-synchronization-command/)">安装rsync</a></p></li>
+
+<li><p>其他参数使用<code>man rsync</code>查看</p></li>
+</ol>
 <ul class="pa0">
   
    <li class="list">
@@ -176,7 +233,22 @@
 
     <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
     <p class="f5 b mb3">What&#39;s in this post</p>
-      
+      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#参数介绍">参数介绍</a></li>
+<li><a href="#常用操作">常用操作</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#资源">资源</a></li>
+</ul></li>
+</ul>
+</nav>
   </div>
 
 
